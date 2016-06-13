@@ -1,6 +1,5 @@
 package hr.matej.polygontest;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
@@ -41,8 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void getHomeLocation() {
         // Add a marker in Zagreb (my home) and move the camera
         LatLng home = new LatLng(45.804614, 16.022390);
-        mMap.addMarker(new MarkerOptions().position(home).title("Doma kod mene - tu dođite na pivo! :D"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(home));
+        mMap.addMarker(new MarkerOptions().position(home).title("Building"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 16.5f));
     }
 
@@ -54,7 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(45.805821, 16.020359),
                 new LatLng(45.805997, 16.023170)
         );
-        polygonOptions.fillColor(Color.CYAN);
+        int transparentCyan = 0x3300FFFF;
+        polygonOptions.fillColor(transparentCyan);
 
         // Get back the mutable Polygon
         Polygon polygon = mMap.addPolygon(polygonOptions);
